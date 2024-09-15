@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+/* CSS Variables */
+:root {
+  --bg-dark: #1d1d1d; /* Darker background for better contrast */
+  --bg-light: #E7D7C1;
+  --text-dark: #000;
+  --text-light: #f5f5f5;
+  --primary-color: #26532B;
+  --secondary-color: #BF4342;
+  --hover-bg: #2C6D28;
+  --hover-bg-light: #6EF9F5;
+  --accent-color: #5ABCB9;
+  --skill-bg: #399E5A;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --card-bg-dark: #2c2c2c; /* Adjusted for better contrast */
+  --card-bg-light: #fafafa;
+  --input-bg-dark: #333;
+  --input-bg-light: #fff;
+  --input-text-dark: #fff;
+  --input-text-light: #000;
+}
+
+/* General Styling */
+body {
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+/* Theme Toggle Button Styling */
+.theme-toggle {
+  position: fixed; /* Keeps the button in a fixed position */
+  top: 20px; /* Distance from the top */
+  right: 20px; /* Distance from the right */
+  z-index: 1000; /* Ensures it's above other content */
+}
+
+#theme-toggle-btn {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#theme-toggle-btn:hover {
+  background-color: var(--hover-bg);
+}
+
+/* Container Styling */
+.container {
+  display: flex;
+  max-width: 80rem; /* Increased max-width for better visibility */
+  margin: 1.25rem auto;
+  gap: 1.25rem;
+}
+
+/* Hide sidebar and main content initially */
+.sidebar, .main-content {
+  display: none;
+}
+
+/* When form is submitted, show both sidebar and main content */
+.show-resume .sidebar,
+.show-resume .main-content {
+  display: block;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1.25rem;
+  width: 20%; /* Decreased width for better responsiveness */
+  transition: background-color 0.3s;
+  margin-left: 1rem; /* Reduced margin for better alignment */
+  border-radius: 1rem;
+}
+
+body.light-mode .sidebar {
+  background-color: var(--secondary-color);
+}
+
+/* Main Content Styling */
+.main-content {
+  width: 75%; /* Adjusted width for the main content */
+}
+
+/* General Section Styling */
+section {
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: var(--card-bg-dark);
+  border-radius: 10px;
+  transition: transform 0.3s, background-color 0.3s, border-radius 0.3s, box-shadow 0.3s;
+}
+
+body.light-mode section {
+  background-color: var(--card-bg-light);
+  color: var(--text-dark); /* Ensure text is dark for light mode */
+}
+
+/* Hover Effect for Sections */
+section:hover {
+  transform: scale(1.02); /* Slight zoom on hover */
+  background-color: var(--hover-bg-light); /* Change background color */
+  border-radius: 15px; /* Add rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add a shadow */
+}
+
+/* Heading Styling */
+h1, h2 {
+  font-family: 'Dancing Script', cursive;
+}
+
+h1 {
+  font-size: 2.5rem; /* Adjusted font size */
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.75rem; /* Adjusted font size */
+  border-bottom: 2px solid #63E2C6;
+}
+
+/* Card-like Form Styling */
+.resume-editor {
+  background-color: var(--card-bg-dark);
+  color: var(--input-text-dark);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+  border: 2px solid var(--accent-color);
+  max-width: 600px;
+  margin: 20px auto;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode .resume-editor {
+  background-color: var(--card-bg-light);
+  color: var(--input-text-light);
+  border-color: var(--hover-bg-light);
+}
+
+/* Form Inputs */
+.resume-editor input,
+.resume-editor textarea {
+  width: 90%; /* Ensure input fields are smaller than the card */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  background-color: var(--input-bg-dark);
+  color: var(--input-text-dark);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+body.light-mode .resume-editor input,
+body.light-mode .resume-editor textarea {
+  background-color: var(--input-bg-light);
+  color: var(--input-text-light);
+  border-color: var(--hover-bg-light);
+}
+
+.resume-editor button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.resume-editor button:hover {
+  background-color: var(--hover-bg);
+}
+
+/* Hide the resume section initially */
+#resume-section {
+  display: none;
+}
+
+/* Show the resume section after form submission */
+.show-resume #resume-section {
+  display: flex;
+  justify-content: space-between; /* To put sidebar and main content side by side */
+}
+
+/* Profile Image Styling */
+.profile-img {
+  width: 150px; /* Adjusted width for better fit */
+  height: 150px; /* Adjusted height for better fit */
+  border-top-left-radius: 20%;
+  border-bottom-right-radius: 20%;
+  transition: transform 0.3s, border 0.3s;
+  border: 2px solid #5ABCB9;
+  object-fit: cover;
+}
+
+.profile-img:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 0 10px;
+  }
+
+  .sidebar, .main-content {
+    width: 100%; /* Ensure full width on small screens */
+    margin: 0; /* Reset margin */
+  }
+
+  #resume-section {
+    flex-direction: column; /* Stack sidebar and main content vertically */
+  }
+
+  section {
+    width: calc(100% - 20px); /* Adjust width to fit within container */
+    margin: 10px auto; /* Center and adjust spacing */
+  }
+
+  h1 {
+    font-size: 1.5rem; /* Adjust font size */
+  }
+
+  h2 {
+    font-size: 1.25rem; /* Adjust font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .theme-toggle {
+    top: 10px; /* Adjust position for very small screens */
+    right: 10px;
+  }
+}
