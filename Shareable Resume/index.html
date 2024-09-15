@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Ayesha Mughal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle">
+        <button id="theme-toggle-btn">Toggle Dark/Light Mode</button>
+    </div>
+
+    <!-- Resume Container -->
+    <div class="resume-container">
+        <!-- Form for editing the resume -->
+        <div class="resume-editor">
+            <h2>Resume Builder</h2>
+            <form id="resumeForm">
+                <!-- Personal Information -->
+                <label for="nameInput">Name:</label>
+                <input type="text" id="nameInput" placeholder="Enter your name" required><br/>
+                              
+                <label for="jobTitleInput">Job Title:</label>
+                <input type="text" id="jobTitleInput" placeholder="Enter job title" required><br/>
+
+                <label for="addressInput">Address:</label>
+                <input type="text" id="addressInput" placeholder="Enter address" required><br/>
+
+                <label for="emailInput">Email:</label>
+                <input type="text" id="emailInput" placeholder="Enter email" required><br/>
+
+                <label for="phoneInput">Phone:</label>
+                <input type="text" id="phoneInput" placeholder="Enter phone" required><br/>
+
+                <!-- Skills Section -->
+                <label for="skillsInput">Skills (comma separated):</label>
+                <input type="text" id="skillsInput" placeholder="HTML, CSS, JavaScript"><br/>
+
+                <!-- Languages Section -->
+                <label for="languagesInput">Languages (comma separated):</label>
+                <input type="text" id="languagesInput" placeholder="English, Urdu"><br/>
+
+                <!-- About Me Section -->
+                <label for="aboutMeInput">About Me:</label>
+                <textarea id="aboutMeInput" placeholder="Write something about yourself" required></textarea><br/>
+
+                <!-- Education Section -->
+                <label for="educationInput">Education (comma separated):</label>
+                <textarea id="educationInput" placeholder="Enter education details" required></textarea><br/>
+
+                <!-- Projects Section -->
+                <label for="projectsInput">Projects (comma separated):</label>
+                <textarea id="projectsInput" placeholder="Enter projects details"required></textarea><br/>
+
+                <!-- Certifications Section -->
+                <label for="certificationsInput">Certifications (comma separated):</label>
+                <textarea id="certificationsInput" placeholder="Enter certifications" required></textarea><br/>
+
+                <!-- Submit Button -->
+                <button type="button" onclick="showResume()">Submit</button>
+            </form>
+        </div>
+
+        <!-- Resume Section (Hidden until submit) -->
+         <h1>Resume</h1>
+        <div id="resume-section">
+            <aside class="sidebar">
+                <!-- Profile Image Upload -->
+                <div>
+                    <input type="file" id="profile-img-input" accept="image/*" />
+                    <img id="profile-img" class="profile-img" src="dp.jpg" alt="Profile Image" />
+                </div>
+
+                <div id="name-display">Ayesha Mughal</div>
+                <div id="job-title-display">👨🏻‍💻Front-end developer</div>
+                <p><strong>🏠 Address:</strong> <span id="resume-address">Karachi, Pakistan</span></p>
+                <p><strong>✉️ Email:</strong> <span id="resume-email">ayesha2162@gmail.com</span></p>
+                <p><strong>📞 Phone:</strong> <span id="resume-phone">+123456789</span></p>
+
+                <hr>
+                <!-- Skills Section -->
+                <section id="skills">
+                    <h2>Skills</h2>
+                </section>
+
+                <!-- Languages Section -->
+                <section id="languages">
+                    <h2>Languages</h2>
+                </section>
+            </aside>
+
+            <div class="main-content">
+                <!-- About Me Section -->
+                <section>
+                    <h2>About Me</h2>
+                    <p id="about-me">👋 Hi! I'm Ayesha Mughal, a 15-year-old CS student...</p>
+                </section>
+
+                <!-- Education Section -->
+                <section>
+                    <h2>Education</h2>
+                    <ul id="education">
+                        <li>Matriculation - Karachi Board</li>
+                        <li>Intermediate (Currently in 2nd year)</li>
+                    </ul>
+                </section>
+
+                <!-- Projects Section -->
+                <section>
+                    <h2>Projects</h2>
+                    <div class="timeline">
+                        <!-- Projects will be dynamically updated here -->
+                    </div>
+                </section>
+
+                <!-- Certifications Section -->
+                <section>
+                    <h2>Certifications</h2>
+                    <ul id="certifications">
+                        <!-- Certifications will be dynamically updated here -->
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+<div id="shareable-link-container" >
+    <h2>Shareable Link</h2>
+    <p>here is your Unique Url</p>
+    <a href="#" id="shareable-link" target="_blank"></a>
+    <br>
+    <button id="download-pdf"><b>Download as PDF</b></button>
+</div>
+    <footer>
+        <p>Made with <span class="heart">♥</span> by Ayesha Mughal</p>
+    </footer>
+
+    <!-- TypeScript file link (after compilation, use the JS version) -->
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+/* CSS Variables */
+:root {
+  --bg-dark: #1d1d1d;
+  --bg-light: #E7D7C1;
+  --text-dark: #000;
+  --text-light: #f5f5f5;
+  --primary-color: #26532B;
+  --secondary-color: #BF4342;
+  --hover-bg: #2C6D28;
+  --hover-bg-light: #6EF9F5;
+  --accent-color: #5ABCB9;
+  --skill-bg: #399E5A;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --card-bg-dark: #2c2c2c;
+  --card-bg-light: #fafafa;
+  --input-bg-dark: #333;
+  --input-bg-light: #fff;
+  --input-text-dark: #fff;
+  --input-text-light: #000;
+}
+
+/* General Styling */
+body {
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+/* Container for Sidebar and Main Content */
+.container {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  margin: 1.25rem auto;
+  gap: 1.25rem;
+}
+
+/* Hide sidebar and main content initially */
+.sidebar, .main-content {
+  display: none;
+}
+
+/* Show sidebar and main content when form is submitted */
+.show-resume .sidebar,
+.show-resume .main-content {
+  display: block;
+}
+
+.sidebar {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1.25rem;
+  width: 25%;
+  transition: background-color 0.3s;
+  margin-left: 1rem;
+  border-radius: 1rem;
+}
+
+body.light-mode .sidebar {
+  background-color: var(--secondary-color);
+  color: var(--text-dark);
+}
+
+.main-content {
+  width: 68%;
+  margin-right: 1rem;
+}
+
+/* General Section Styling */
+section {
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: var(--card-bg-dark);
+  border-radius: 10px;
+  transition: transform 0.3s, background-color 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  width: 95%;
+  max-width: 100%;
+}
+
+body.light-mode section {
+  background-color: var(--card-bg-light);
+}
+
+section:hover {
+  transform: scale(1.02);
+  background-color: var(--hover-bg-light);
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+h1, h2 {
+  font-family: 'Dancing Script', cursive;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.75rem;
+  border-bottom: 2px solid #63E2C6;
+}
+
+/* Skills and Languages Container */
+#skills, #languages {
+  background-color: var(--card-bg-dark);
+  color: var(--text-light);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  width: 100%; /* Ensure it fits within the sidebar */
+  box-sizing: border-box; /* Prevent overflow */
+}
+
+body.light-mode #skills, body.light-mode #languages {
+  background-color: var(--card-bg-light);
+  color: var(--text-dark); /* Ensure text color is visible in light mode */
+}
+
+#skills p, #languages p {
+  margin: 0;
+  padding: 5px;
+  font-size: 1rem;
+}
+
+/* Card-like Form Styling */
+.resume-editor {
+  background-color: var(--card-bg-dark);
+  color: var(--input-text-dark);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+  border: 2px solid var(--accent-color);
+  max-width: 600px;
+  margin: 20px auto;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode .resume-editor {
+  background-color: var(--card-bg-light);
+  color: var(--input-text-light);
+  border-color: var(--hover-bg-light);
+}
+
+/* Form Inputs */
+.resume-editor input,
+.resume-editor textarea {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  background-color: var(--input-bg-dark);
+  color: var(--input-text-dark);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+body.light-mode .resume-editor input,
+body.light-mode .resume-editor textarea {
+  background-color: var(--input-bg-light);
+  color: var(--input-text-light);
+  border-color: var(--hover-bg-light);
+}
+
+.resume-editor button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.resume-editor button:hover {
+  background-color: var(--hover-bg);
+}
+
+/* Hide the resume section initially */
+#resume-section {
+  display: none;
+}
+
+/* Show the resume section after form submission */
+.show-resume #resume-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Profile Image Styling */
+.profile-img {
+  width: 200px;
+  height: 200px;
+  border-top-left-radius: 20%;
+  border-bottom-right-radius: 20%;
+  transition: transform 0.3s, border 0.3s;
+  border: 2px solid #5ABCB9;
+  object-fit: cover;
+}
+
+.profile-img:hover {
+  transform: scale(1.1);
+}
+
+/* Shareable Resume Section Styling */
+#shareable-link-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+#shareable-link-container h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+#shareable-link-container p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+#shareable-link {
+  display: inline-block;
+  font-size: 18px;
+  color: #1a73e8;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid #1a73e8;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#shareable-link:hover {
+  background-color: #1a73e8;
+  color: #fff;
+}
+
+#download-pdf {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#download-pdf:hover {
+  background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    padding: 0 10px;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .main-content {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .profile-img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .resume-editor {
+    max-width: 90%;
+    margin: 10px auto;
+  }
+
+  .profile-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  section {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  #shareable-link-container {
+    width: 90%; /* Ensure it fits within the main content */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  #shareable-link-container {
+    font-size: 14px; /* Smaller text for mobile */
+  }
+}
